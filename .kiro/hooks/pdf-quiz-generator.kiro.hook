@@ -1,0 +1,19 @@
+{
+  "enabled": true,
+  "name": "PDF Quiz Generator",
+  "description": "Processes uploaded PDF files to generate multiple choice questions, validates the PDF, extracts text, uses OpenAI to create 10 MCQs, authenticates with Firebase, saves the PDF to storage, creates Firestore records, and redirects to the quiz dashboard",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "src/app/api/upload/route.ts",
+      "src/lib/pdf.ts",
+      "src/lib/openai.ts",
+      "src/lib/firebase.ts"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "A user has uploaded a PDF file that needs to be processed into a quiz. Please implement the complete PDF quiz generation workflow:\n\n1. **PDF Validation**: Validate the uploaded file is a valid PDF (`.pdf` extension, under 10MB, not password protected or image-only)\n\n2. **Text Extraction**: Use `pdf-parse` to extract text content, limiting to 4000 characters\n\n3. **MCQ Generation**: Send the extracted text to OpenAI GPT-4o with a prompt to generate exactly 10 multiple choice questions in this JSON format:\n   ```json\n   {\n     \"question\": \"...\",\n     \"options\": [\"A\", \"B\", \"C\", \"D\"], \n     \"answer\": \"A\"\n   }\n   ```\n\n4. **Firebase Authentication**: Extract user UID from the provided ID token\n\n5. **File Storage**: Save the PDF to Firebase Storage at path `pdfs/{uid}/{timestamp}.pdf`\n\n6. **Database Record**: Create a Firestore document at `users/{uid}/quizzes/{quizId}` containing:\n   - `fileUrl` (Firebase Storage URL)\n   - `questions` (generated MCQs array)\n   - `createdAt` (timestamp)\n   - `sourcePdfName` (original filename)\n\n7. **Response**: Return JSON response:\n   ```json\n   {\n     \"success\": true,\n     \"redirectTo\": \"/dashboard/quiz/{quizId}\"\n   }\n   ```\n\nFocus on implementing robust error handling for each step and ensure the generated questions follow the exact JSON schema required by the frontend quiz components."
+  }
+}

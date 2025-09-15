@@ -1,0 +1,10 @@
+# Node modules and Next.js output folders
+node_modules
+.next
+out
+.cache
+.env
+.env.local
+.DS_Store
+*.log
+coverage
