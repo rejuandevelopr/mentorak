@@ -12,8 +12,17 @@ Learn Anything with AI-Generated Quizzes
 - **AI Services**: OpenAI API (GPT-4)
 - **Forms**: React Hook Form
 
+
+## Deployment Notes
+
+Originally attempted deployment via [Vercel](https://vercel.com), but encountered persistent routing/configuration issues with custom domain `mentorak.com`. As a result, the project was moved to a custom VPS (Hostinger VPS) using:
+- **Nginx** as a reverse proxy
+- **PM2** to run the Next.js server
+- **Certbot (Let's Encrypt)** for SSL
+
 ## 🌐 Live Website
-[mentorak.com](https://mentorak.com/)
+
+The domain is now fully live at: [https://mentorak.com](https://mentorak.com)
 
 
 ## License
