@@ -13,7 +13,7 @@ Learn Anything with AI-Generated Quizzes
 - **Forms**: React Hook Form
 
 ## 🌐 Live Website
-mentorak.com
+[mentorak.com](https://mentorak.com/)
 
 
 ## License
