@@ -12,6 +12,9 @@ Learn Anything with AI-Generated Quizzes
 - **AI Services**: OpenAI API (GPT-4)
 - **Forms**: React Hook Form
 
+## 🌐 Live Website
+👉 [mentorak.com](https://mentorak.com)
+
 
 ## License
 MIT License
