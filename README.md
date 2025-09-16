@@ -15,14 +15,19 @@ Learn Anything with AI-Generated Quizzes
 
 ## Deployment Notes
 
-Originally attempted deployment via [Vercel](https://vercel.com), but encountered persistent routing/configuration issues with custom domain `mentorak.com`. As a result, the project was moved to a custom VPS (Hostinger VPS) using:
-- **Nginx** as a reverse proxy
-- **PM2** to run the Next.js server
-- **Certbot (Let's Encrypt)** for SSL
+Originally attempted deployment via [Vercel](https://vercel.com), but encountered persistent routing/configuration issues with the custom domain **mentorak.com**. As a result, the project was moved to a custom VPS (Hostinger VPS), using:
 
-## 🌐 Live Website
+- **Nginx** as a reverse proxy  
+- **PM2** to run the Next.js server  
+- **Certbot (Let's Encrypt)** for SSL  
 
-The domain is now fully live at: [https://mentorak.com](https://mentorak.com)
+---
+
+### 🌐 Live Website
+
+The domain is now fully live and accessible at:  
+👉 [https://mentorak.com](https://mentorak.com)
+
 
 
 ## License
